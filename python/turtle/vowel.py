@@ -1,34 +1,43 @@
-import turtle
+from turtle import *
+from abc import ABC, abstractmethod
 import time
 
-def draw_a():
-    turtle.write("a", True)
+class Template(ABC):
+    def draw_a(self):
+        write("a", True)
 
-def draw_e():
-    turtle.write("e", True)
+    def draw_e(self):
+        write("e", True)
 
-def draw_i():
-    turtle.write("i", True)
+    def draw_i(self):
+        write("i", True)
 
-def draw_o():
-    turtle.write("o", True)
+    def draw_o(self):
+        write("o", True)
 
-def draw_u():
-    turtle.write("u", True)
+    def draw_u(self):
+        write("u", True)
 
-def start():
-    cnt = 0
-    turtle.setup(width=600, height=400)
-    turtle.width(9)
-    turtle.speed(0)
-    turtle.penup()
-    turtle.goto(-220, -30)
-    while cnt < 10:
-        draw_e()
-        draw_o()
-        draw_u()
-        time.sleep(1)
-        cnt = cnt + 1
+    def draw(self):
+        pass
+
+    def start(self):
+        setup(width=600, height=400)
+        width(9)
+        speed(0)
+        penup()
+        goto(-220, -30)
+	
+    def execute(self):
+        self.start()
+        self.draw()
+        time.sleep(5)
 
 if __name__ == '__main__':
-    start()
+    class TemplateImpl(Template):
+        def draw(self):
+            self.draw_a()
+            self.draw_e()
+
+    temp_impl = TemplateImpl()
+    temp_impl.execute()
