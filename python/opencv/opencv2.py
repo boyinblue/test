@@ -17,5 +17,3 @@ cv2.destroyWindow('frame')
 
 # When everything done, release the capture
 cap.release()
-
-##
