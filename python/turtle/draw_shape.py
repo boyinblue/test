@@ -3,7 +3,7 @@ import time
 
 turtle.setup(width=1024, height=768)
 turtle.width(3)
-turtle.speed(1)
+turtle.speed(10)
 turtle.pendown()
 #turtle.goto(-220, -30)
 
@@ -90,16 +90,17 @@ def draw_spiral_circles():
     turtle.circle(i + 1, 45)
 
 if __name__ == '__main__':
+#  draw_square()
 #  draw_pantagon()
 #  draw_star()
 #  draw_sun()
 #  draw_sun_flower()
 #  draw_star2()
-#  draw_wheel()
+  draw_wheel()
 #  draw_3d_star()
 #  draw_star_reverse()
 #  draw_tier()
 #  draw_circle()
 #  draw_circles()
-  draw_spiral_circles()
+#  draw_spiral_circles()
   time.sleep(3)
