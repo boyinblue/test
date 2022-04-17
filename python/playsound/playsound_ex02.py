@@ -21,10 +21,11 @@ def stop_mp3():
                 thread_id = id
                 break
 
-    res = ctypes.pythonapi.PyThreadState_SetAsyncExec(thread_id,
+    print("Try to thread exit :", thread_id)
+    res = ctypes.pythonapi.PyThreadState_SetAsyncExc(thread_id,
                     ctypes.py_object(SystemExit))
     if res > 1:
-        ctypes.pythonapi.PyThreadState_SetAsyncExec(thread_id, 0)
+        ctypes.pythonapi.PyThreadState_SetAsyncExc(thread_id, 0)
         print('Exception raise failure')
 
 def play_mp3(filename):
