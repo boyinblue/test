@@ -1,10 +1,10 @@
 import turtle
 import time
 
-turtle.setup(width=1024, height=768)
+turtle.setup(width=400, height=400)
 turtle.width(3)
-turtle.speed(1)
-turtle.pendown()
+#turtle.speed(1)
+#turtle.pendown()
 #turtle.goto(-220, -30)
 
 def draw_square():
@@ -62,6 +62,7 @@ def draw_3d_star():
     turtle.left(145)
 
 def draw_wheel():
+  turtle.setup(width=400, height=400)
   for i in range(0,40):
     turtle.forward(100)
     turtle.left(145)
@@ -72,8 +73,8 @@ def draw_wheel2():
     turtle.left(144)
 
 def draw_tier():
-  turtle.speed(0)
-  for i in range(0,89):
+  turtle.speed(100)
+  for i in range(0,90):
     turtle.forward(100)
     turtle.left(89)
 
@@ -93,13 +94,14 @@ if __name__ == '__main__':
 #  draw_pantagon()
 #  draw_star()
 #  draw_sun()
-#  draw_sun_flower()
+#  draw_sun2()
+#  draw_flower()
 #  draw_star2()
-#  draw_wheel()
+  draw_wheel()
 #  draw_3d_star()
 #  draw_star_reverse()
 #  draw_tier()
 #  draw_circle()
 #  draw_circles()
-  draw_spiral_circles()
+#  draw_spiral_circles()
   time.sleep(3)
