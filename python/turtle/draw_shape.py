@@ -5,6 +5,8 @@ turtle.setup(width=400, height=400)
 turtle.width(3)
 #turtle.speed(1)
 #turtle.pendown()
+turtle.speed(10)
+turtle.pendown()
 #turtle.goto(-220, -30)
 
 def draw_square():
@@ -91,6 +93,7 @@ def draw_spiral_circles():
     turtle.circle(i + 1, 45)
 
 if __name__ == '__main__':
+#  draw_square()
 #  draw_pantagon()
 #  draw_star()
 #  draw_sun()

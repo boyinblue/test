@@ -24,6 +24,19 @@ def draw_fire_engine():
   turtle.left(45)
   turtle.goto(-100, 0)
 
+  # 창문
+  turtle.up()
+  turtle.degrees()
+  turtle.goto(-50, -50)
+  turtle.down()
+  turtle.forward(50)
+  turtle.right(90)
+  turtle.forward(50)
+  turtle.right(90)
+  turtle.forward(50)
+  turtle.right(90)
+  turtle.forward(50)
+
   # 앞바퀴
   turtle.degrees()
   turtle.up()
