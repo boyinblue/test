@@ -1,7 +1,7 @@
 #include <stdio.h>
 #define MAX_STU 100
 #define MAX_COURSE 10
-#define MAX_NAME_SIZE
+#define MAX_NAME_SIZE 10
 
 void temp_score(int nstu, int ncrs, int s[MAX_STU][MAX_COURSE+2],int ss[MAX_STU]){
     for (int i = 0; i < nstu; i++) {
@@ -22,21 +22,26 @@ void temp_score(int nstu, int ncrs, int s[MAX_STU][MAX_COURSE+2],int ss[MAX_STU]
     }
 }
 
-void input_scores(int nstu, int ncrs,int s[MAX_STU][MAX_COURSE+2],int ss[MAX_STU]){
+void input_scores(int nstu, int ncrs, char (*name)[MAX_NAME_SIZE], int s[MAX_STU][MAX_COURSE+2],int ss[MAX_STU]){
     for(int i=0;i<nstu;i++){
-        scanf("%d",&s[i][0]);
+	    printf("학번 : ");
+        scanf("%d", &s[i][0]);
+        printf("이름 : ");
+        scanf("%s", name[i]);
     }
+    
     for(int n=0;n<ncrs;n++){
         for(int stu=0;stu<nstu;stu++){
+            printf("점수 : ");
             scanf("%d",&s[stu][n+1]);
             ss[stu] += s[stu][n+1];
         }
     }
 }
 
-void printf_scores(int nums,int ncrs,int s[MAX_STU][MAX_COURSE+2],int ss[MAX_STU]){
+void printf_scores(int nums,int ncrs, char (*name)[MAX_NAME_SIZE], int s[MAX_STU][MAX_COURSE+2],int ss[MAX_STU]){
     int sum[MAX_STU]={0};
-    printf("학번\t이름\t");
+    printf("이름\t학번\t");
     for(int crs=1;crs<=ncrs;crs++){
         printf("과목%d\t",crs);
         if (crs == ncrs) {
@@ -45,12 +50,13 @@ void printf_scores(int nums,int ncrs,int s[MAX_STU][MAX_COURSE+2],int ss[MAX_STU
     }
     printf("\n");
     for(int stu=0;stu<nums;stu++){
-    for(int crs=0;crs<=ncrs;crs++){  
-        printf("%d\t",s[stu][crs]);
-    }
+        printf("%s\t", name[stu]);
+    	for(int crs=0;crs<=ncrs;crs++){  
+            printf("%d\t",s[stu][crs]);
+    	}
 
-    printf("%d", ss[stu]);       
-    printf("\n");
+    	printf("%d", ss[stu]);       
+    	printf("\n");
     }
 }
 
@@ -60,7 +66,7 @@ int main()
     int numStu; //학생수
     int numCourse;//과목수 
     int score_sum[MAX_STU] = { 0 };
-    char names[MAX_STU][;
+    char names[MAX_STU][MAX_NAME_SIZE];
     
     if(scanf("%d%d",&numStu,&numCourse) !=2){
         printf("입력오류\n");
@@ -68,7 +74,7 @@ int main()
     }
 
     //크기 check
-    input_scores(numStu, numCourse,score,score_sum);
-    temp_score(numStu,numCourse,score,score_sum);
-    printf_scores(numStu,numCourse,score,score_sum);
+    input_scores(numStu, numCourse, names, score, score_sum);
+    temp_score(numStu,numCourse, score,score_sum);
+    printf_scores(numStu,numCourse, names, score,score_sum);
 }
