@@ -24,11 +24,11 @@ def connect(name, password):
 #password = input("Password: ")
 #password = "0000000000"
 
-#name = "KT_GiGA_D42D"
-#password = "00"
+name = "KT_GiGA_D42D"
+password = "0000000000"
 
-name = "radio"
-password = "0onor0904"
+#name = "radio"
+#password = "0onor0904"
 
 list1 = list(password)
 
