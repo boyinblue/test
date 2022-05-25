@@ -1,1 +1,4 @@
+# Byte-compiled / optimized / DLL files
 python/turtle/__pycache__
+python/playsound/__pycache__/
+*.py[cod]
