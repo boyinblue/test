@@ -41,3 +41,13 @@ ResultActive=yes
 ```
 
 
+혹은 wget으로 해당 파일을 다운로드 받아서 복사해도 됩니다.
+
+
+```
+$ wget https://raw.githubusercontent.com/boyinblue/test/main/ubuntu/color.pkla/color.pkla
+$ sudo mv color.pkla /etc/polkit-1/localauthority/50-local.d/
+```
+
+
+이상입니다
