@@ -14,12 +14,16 @@ def parse_list_response(line):
     return (flags, delimiter, mailbox_name)
 
 # Add your data here
-HOST = 'server.de'
-USERNAME = 'user'
-PASSWORD = 'password'
+HOST = 'imap.naver.com'
+PORT = 993
+USERNAME = input("ID : ")
+PASSWORD = input("PW : ")
 
-server = imaplib.IMAP4(HOST) # connect
+print("Step 1. Open SSL")
+server = imaplib.IMAP4_SSL(HOST, port=PORT, timeout=5) # connect
+print("Step 2. Login")
 server.login(USERNAME, PASSWORD) # login
+print("Step 3. Select INBOX")
 server.select('INBOX',readonly=True) # select mailbox aka folder
 
 result, data = server.search(None, "ALL") # search emails
