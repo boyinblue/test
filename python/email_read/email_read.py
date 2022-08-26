@@ -37,9 +37,9 @@ content = data[0][1].decode('ascii')
 #print("Data :", content)
 msg = email.message_from_string(content)
 #print("Msg :", msg)
-varSubject = msg['Subject'].decode('UTF-8')
+varSubject = msg['Subject']
 print("[Subject]", varSubject)
-varFrom = msg['From'].decode('UTF-8')
+varFrom = msg['From']
 print("[From]", varFrom)
 varDate = msg['Date']
 print("[Date]", varDate)
