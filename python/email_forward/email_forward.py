@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
@@ -36,7 +36,7 @@ for response_part in data:
         varFrom = msg['from']
         varDate = msg['Date']
 
-        print varDate + " " + varFrom.split()[-1] + " " + varSubject
+        print(varDate + " " + varFrom.split()[-1] + " " + varSubject)
 
 server.close()
 server.logout()
