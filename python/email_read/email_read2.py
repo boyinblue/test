@@ -28,21 +28,25 @@ def email_login():
 
     return server
 
-def email_save(id, msg):
+def convert_date_fmt(date):
     from datetime import datetime
     
 #    print("Date :", msg['Date'])
     try:
-        datetime_obj = datetime.strptime(msg['Date'],
+        datetime_obj = datetime.strptime(date,
                         "%a, %d %b %Y %X %z (%Z)")
     except:
-        datetime_obj = datetime.strptime(msg['Date'],
+        datetime_obj = datetime.strptime(date,
                         "%a, %d %b %Y %X %z")
 
     format_date = datetime_obj.strftime("%y%m%d_%H%M%S")
 #    print("date =", format_date)
+    return format_date
 
-    with open('tmp/{}'.format(id), 'w') as file:
+def email_save(id, msg):
+    format_date = convert_date_fmt(msg['Date'])
+
+    with open('tmp/{}'.format(format_date), 'w') as file:
         file.write(msg['Subject'])
 
 def email_read_by_id(server, id):
@@ -70,7 +74,7 @@ def email_print(id, msg):
     print("[Content]")
     print("")
 
-def is_email_exist(id):
+def is_email_exist_by_id(id):
     import os
 
     if not os.path.isdir("tmp"):
@@ -80,22 +84,38 @@ def is_email_exist(id):
         return True
     return False
 
+def is_email_exist_by_date(date):
+    import os
+
+    if not os.path.isdir("tmp"):
+        os.mkdir("tmp")
+
+    if os.path.isfile("tmp/{}".format(date)):
+        return True
+    return False
+
 def main():
     server = email_login()
     result, data = server.search(None, "ALL") # search emails
 
     ids = data[0] # data is a list.
     id_list = ids.split() # ids is a space separated string
+    id_list.reverse()
     for bid in id_list:
         id = bid.decode()
-        if is_email_exist(id):
-            print("[{}] Skip!".format(id))
-            continue
+#        if is_email_exist_by_id(id):
+#            print("[{}] Skip!".format(id))
+#            continue
         msg = email_read_by_id(server, bid)
         if not msg:
             continue
         #print("Msg :", msg)
 
+        date_format = convert_date_fmt(msg['Date'])
+#        print("Check Date :", date_format)
+        if is_email_exist_by_date(date_format):
+            print("Skip!")
+            continue
         email_print(id, msg)
         email_save(id, msg)
 
