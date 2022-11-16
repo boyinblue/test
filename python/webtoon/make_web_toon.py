@@ -10,6 +10,6 @@ files.sort()
 for file in files:
     print("filename :", file)
     if file[-4:] == ".png":
-        fp.write("<img src={}\n>".format(file))
+        fp.write("<img width=100% src={}\n><br>".format(file))
 
 fp.close()
