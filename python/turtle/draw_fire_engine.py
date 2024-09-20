@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import draw_shape
 import turtle
 import time

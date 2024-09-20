@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import random
 #from vowel import Template
 import vowel
